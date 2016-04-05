@@ -1,6 +1,6 @@
-// set_intersection example
+// set_difference example
 #include <iostream>     // std::cout
-#include <algorithm>    // std::set_intersection, std::sort
+#include <algorithm>    // std::set_difference, std::sort
 #include <vector>       // std::vector
 
 int main () {
@@ -12,11 +12,11 @@ int main () {
   std::sort (first,first+5);     //  5 10 15 20 25
   std::sort (second,second+5);   // 10 20 30 40 50
 
-  it=std::set_intersection (first, first+5, second, second+5, v.begin());
-                                               // 10 20 0  0  0  0  0  0  0  0
-  v.resize(it-v.begin());                      // 10 20
+  it=std::set_difference (first, first+5, second, second+5, v.begin());
+                                               //  5 15 25  0  0  0  0  0  0  0
+  v.resize(it-v.begin());                      //  5 15 25
 
-  std::cout << "The intersection has " << (v.size()) << " elements:\n";
+  std::cout << "The difference has " << (v.size()) << " elements:\n";
   for (it=v.begin(); it!=v.end(); ++it)
     std::cout << ' ' << *it;
   std::cout << '\n';
