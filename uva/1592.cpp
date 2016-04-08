@@ -1,65 +1,72 @@
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <cstdio>
 #include <vector>
 #include <map>
 #include <set>
+#include <iomanip>
 
 using namespace std;
 
-map<string, int> IDcache;
+typedef long long LL;
+
+map<string, LL> IDcache;
 vector<string> STRcache;
 
-int mp[10000][10];
+LL mp[10010][11];
 
-int ID(string x)
+LL ID(string x)
 {
 	if (IDcache.count(x)) return IDcache[x];
 	STRcache.push_back(x);
 	return IDcache[x] = STRcache.size() - 1;
 }
 
-map<pair<int, int>, int> fun;
+map<pair<LL, LL>, LL> fun;
 
 int main(int argc, char const *argv[])
 {
 	int n,m;
 	while(cin >> n >> m)
 	{
+		getchar();
 		IDcache.clear();
 		STRcache.clear();
-		fun.clear();
+		memset(mp,0,sizeof(mp));
+		string line;
+		string str;
 		for (int i = 0; i < n; ++i)
 		{
-			string str;
-			char c;
-			int id;
-			for (int j = 0; j < m-1; ++j)
+			getline(cin, line);
+			int j = 0;
+			str.clear();
+			for (int k = 0; k < line.length(); ++k)
 			{
-				str = "";
-				while(',' != (c = getchar()))
+				if (line[k]==',')
 				{
-					str += c;
+					mp[i][j++] = ID(str);
+					str.clear();
 				}
-				id = ID(str);
-				mp[i][j] = id;
+				else
+				{
+					str += line[k];
+				}
 			}
-			cin >> str;
-			id = ID(str);
-			mp[i][m-1] = id;
+			mp[i][j] = ID(str);
 		}
 		bool flag = true;
-		pair<int, int> ansr, ansc;
+		pair<LL, LL> ansr, ansc;
 		for (int c1 = 0; c1 < m-1; ++c1)
 		{
 			if (!flag) break;
 			for (int c2 = c1+1; c2 < m; ++c2)
 			{
 				if (!flag) break;
+				fun.clear();
 				for (int r = 0; r < n; ++r)
 				{
 					pair<int, int> temp(mp[r][c1], mp[r][c2]);
-					if (!flag) break;
 					if (!fun.count(temp))
 					{
 						fun[temp] = r;
@@ -71,19 +78,15 @@ int main(int argc, char const *argv[])
 						ansr.second = r;
 						ansc.first = c1;
 						ansc.second = c2;
+						break;
 					}
 				}
 			}
 		}
 		if (flag)
-		{
 			cout << "YES\n";
-		}
 		else
-		{
 			cout << "NO\n" << ansr.first + 1 << " " << ansr.second + 1 << "\n" << ansc.first + 1 << " " << ansc.second + 1 << "\n";
-		}
-
 	}
 	return 0;
 }
