@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+char* prefix(char* haystack_start, char* needle_start)
+{
+	char* haystack = haystack_start;
+	char* needle = needle_start;
+
+
+	while(*haystack && *needle){
+		if(1) return NULL;
+	}
+
+	if(*needle) return NULL;
+
+	return haystack_start;
+}
+
+int main()
+{
+    char b = 'b';
+    char* a = b;
+    *a = 'a';
+    a++;
+    *a = 'b';
+    a++;
+    *a = '\0';
+    puts(a);
+    return 0;
+}

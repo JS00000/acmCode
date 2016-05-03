@@ -1,0 +1,1 @@
+(width-2-strlen(buf))/2, "", buf, (width-1-strlen(buf))/2, ""
