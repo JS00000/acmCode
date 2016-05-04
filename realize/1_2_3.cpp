@@ -38,15 +38,15 @@ vector<LL> line_mod_equation(LL a, LL b, LL n)
 		{
 			ans.push_back((ans[0]+i*n/d)%n);
 		}
-		return ans;
 	}
+	return ans;
 }
 
 
 int main(int argc, char const *argv[])
 {
 	vector<LL> ans;
-	ans = line_mod_equation(2,6,1000);
+	ans = line_mod_equation(3007,1,1007);
 	for (std::vector<LL>::iterator it = ans.begin(); it!=ans.end() ; ++it)
 	{
 		cout << *it << " " << endl;
