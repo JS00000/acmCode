@@ -16,6 +16,6 @@ int whatDay(int y, int m, int d)
 
 int main(int argc, char const *argv[])
 {
-	cout << whatDay(4553, 1, 1) << endl;
+	cout << whatDay(2016+2800, 4, 1) << endl;
 	return 0;
 }
