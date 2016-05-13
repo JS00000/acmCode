@@ -111,8 +111,7 @@ struct BinaryHeap
 
 int main(int argc, char const *argv[])
 {
-	cout << "hello";
-	cout << INT_MIN;
-	cin.get();
+	cout << "Hello world!\n";
+	cout << INT_MAX << endl;
 	return 0;
 }

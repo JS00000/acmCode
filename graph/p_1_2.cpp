@@ -62,6 +62,5 @@ int main(int argc, char const *argv[])
 		cout << ans[i] << " ";
 	}
 	cout << endl;
-	cin >> n;
 	return 0;
 }

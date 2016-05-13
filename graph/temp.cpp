@@ -10,8 +10,19 @@ int main(int argc, char const *argv[])
 		cout << a[i^1] << " ";
 	}
 	cout << endl;
-	int b = 10;
+	int b = 10, c;
 	cout << b << endl;
-	cin >> n;
+	for (int i = 0; i <= 20; ++i)
+	{
+		b = ((i-1)^1) + 1;
+		cout << b << " ";
+	}
+	cout << endl;
+	for (int i = 0; i <= 20; ++i)
+	{
+		c = i^1;
+		cout << c << " ";
+	}
+	cout << endl;
 	return 0;
 }

@@ -28,5 +28,11 @@ int main () {
   {
     cout << a[i] << " " ;
   }
+
+  int j = 0;
+  if (!(a[j = 1] == 4) && a[j] == 2)
+  {
+    cout << "Trick!" << endl;
+  }
   return 0;
 } 

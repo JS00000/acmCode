@@ -113,6 +113,7 @@ void kruskal()
 
 int main(int argc, char const *argv[])
 {
+	freopen("text.in", "r", stdin);
 	graphCreat();
 	kruskal();
 	return 0;
