@@ -34,7 +34,7 @@ void graphCreat()
 {
 	cin >> n >> m;
 	memset(head, 0, (n+1)*sizeof(int));
-	memset(edge, 0, (m+1)*sizeof(EdgeNode));
+	memset(edge, 0, (m*2+1)*sizeof(EdgeNode));
 	for (int k = 1; k <= m; ++k)
 	{
 		int i, j, w;

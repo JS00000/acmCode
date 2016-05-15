@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdio>
 #include <cstring>
+#include <climits>
 #include <vector>
 #include <algorithm>
 
@@ -43,13 +44,30 @@ struct DisjointSet
 	}
 };
 
+struct node1
+{
+	int to;
+	int next;
+};
+node1 link[MAXN];
+int head1[MAXN];
+int end1[MAXN];
+int length[MAXN][MAXN];
+
+
 int n, m;
+int mst = 0, secmst = INT_MAX;
 struct EdgeNode
 {
 	int a, b;
 	int w;
 	bool select;
 } edge[MAXM];
+
+bool cmp(EdgeNode a, EdgeNode b)
+{
+	return a.w < b.w ? 1 : (a.a < b.a ? 1 : a.b < b.b);
+}
 
 void graphCreat()
 {
@@ -59,27 +77,29 @@ void graphCreat()
 	{
 		int i, j, w;
 		cin >> i >> j >> w;
-		edge[k*2-1].a = i;
-		edge[k*2-1].b = j;
-		edge[k*2-1].w = w;
-		edge[k*2].a = j;
-		edge[k*2].b = i;
-		edge[k*2].w = w;
+		edge[k].a = i;
+		edge[k].b = j;
+		edge[k].w = w;
+		// edge[k*2].a = j;
+		// edge[k*2].b = i;
+		// edge[k*2].w = w;
 	}
-	m *= 2;
+	// m *= 2;
 }
 
-
-bool cmp(EdgeNode a, EdgeNode b)
+void kruskal_sec()
 {
-	return a.w < b.w ? 1 : (a.a < b.a ? 1 : a.b < b.b);
-}
-
-void kruskal()
-{
+	int x, y, j = 0;
+	int w,v;
+	for (int i = 1; i <= n; ++i)
+	{
+		link[i].to = i;
+		link[i].next = head1[i];
+		end1[i] = i;
+		head1[i] = i;
+	}
 	DisjointSet dis(n);
 	sort(edge+1, edge+m+1, cmp);
-	int j = 0, x, y;
 	for (int i = 1; i <= m; ++i)
 	{
 		if (j == n - 1) break;
@@ -87,9 +107,19 @@ void kruskal()
 		y = dis.find(edge[i].b);
 		if (x != y)
 		{
+			for (w = head1[x]; w != 0; w = link[w].next)
+			{
+				for (v = head1[y]; v != 0; v = link[v].next)
+				{
+					length[link[w].to][link[v].to] = length[link[v].to][link[w].to] = edge[i].w;
+				}
+			}
+			link[end1[y]].next = head1[x];
+			end1[y] = end1[x];
 			dis.merge(x, y);
 			j++;
 			edge[i].select = true;
+			mst += edge[i].w;
 			cout << edge[i].a << " " << edge[i].b << endl;
 		}
 	}
@@ -100,6 +130,13 @@ int main(int argc, char const *argv[])
 {
 	freopen("text.in", "r", stdin);
 	graphCreat();
-	kruskal();
+	kruskal_sec();
+	for (int i = 1; i <= m; ++i)
+	{
+		if (!edge[i].select) secmst = min(secmst, mst + edge[i].w - length[edge[i].a][edge[i].b]);
+	}
+	cout << mst << endl;
+	cout << secmst << endl;
 	return 0;
 }
+
