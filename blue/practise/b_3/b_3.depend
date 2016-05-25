@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1458324105 source:c:\users\js00000\desktop\project\blue\practise\b_3\main.cpp
+	<iostream>
+	<cmath>
+	<iomanip>
+	<algorithm>
+
