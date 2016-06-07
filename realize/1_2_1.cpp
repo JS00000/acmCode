@@ -10,7 +10,6 @@ int gcd(int a, int b)
 
 int main(int argc, char const *argv[])
 {
-	cout << gcd(68,8) << endl;
-	cin.get();
+	cout << gcd(68, 8) << endl;
 	return 0;
 }

@@ -11,7 +11,6 @@ private:
 	{
 		if (a<=l&&b>=r) return Top[Ind];
 		int mid = (l+r)>>1,ret=Cover[Ind];
-		cout << Ind << " :" << Cover[Ind] << " " << Top[Ind] << endl;
 		if (a<=mid) ret = max(ret,_Query(a,b,l,mid,Ind<<1));
 		if (b>mid) ret = max(ret,_Query(a,b,mid+1,r,(Ind<<1)+1));
 		return ret;
@@ -54,17 +53,12 @@ public:
 
 int main(int argc, char const *argv[])
 {
-	int a[12] = {0,1,2,3,4,5,6,7,8,1,3,7};
+	int a[12] = {0,1,12,3,4,5,6,7,89,1,13,17};
 	IntervalTree it(100);
-	for (int i = 1; i <= 10; ++i)
-	{
+	for (int i = 1; i <= 11; ++i)
 		it.Modify(i,a[i]);
-	}
-	cout << it.Query(10,11) << endl;
-	for (int i = 0; i < 10; ++i)
-	{
-		// cout << i << " " << it.Cover[i] << " " << it.Top[i] << endl;
-	}
-	cin.get();
+	cout << it.Query(10, 12) << endl;
+	for (int i = 1; i < 15; ++i)
+		cout << i << " " << it.Query(1, i) << endl;
 	return 0;
 }

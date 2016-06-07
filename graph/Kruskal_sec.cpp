@@ -139,8 +139,8 @@ int main(int argc, char const *argv[])
 	{
 		if (!edge[i].select) secmst = min(secmst, mst + edge[i].w - length[edge[i].a][edge[i].b]);
 	}
-	cout << "The shortest path's length is        	" << mst << endl;
-	cout << "The second shortest path's length is 	" << secmst << endl;
+	cout << "The shortest tree's length is        	" << mst << endl;
+	cout << "The second shortest tree's length is 	" << secmst << endl;
 	return 0;
 }
 

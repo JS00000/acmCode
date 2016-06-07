@@ -6,8 +6,6 @@
 
 using namespace std;
 
-int n;
-int a[10],m[10];
 
 LL gcd_extend(LL a, LL b, LL &x, LL &y)
 {
@@ -46,14 +44,9 @@ int crt(int a[],int m[], int n)
 
 int main(int argc, char const *argv[])
 {
-	n = 3;
-	a[0] = 3;
-	a[1] = 1;
-	a[2] = 2;
-	m[0] = 5;
-	m[1] = 7;
-	m[2] = 11;
+	int n = 3;
+	int a[9] = {1, 0, 4};
+	int m[9] = {2, 3, 5};
 	cout << crt(a,m,n) << endl;
-	cin.get();
 	return 0;
 }

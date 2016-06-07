@@ -56,7 +56,7 @@ void LCA(int u, int d)
 
 int main(int argc, char const *argv[])
 {
-	freopen("Tarjan.in", "r", stdin);
+	freopen("LCA.in", "r", stdin);
 	int n, m, q, a, b, w;
 	cin >> n >> m;
 	memset(visit, 0, sizeof(visit));
