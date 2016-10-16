@@ -48,7 +48,6 @@ struct line
 	point a,b;
 	line(){}
 	line(point x, point y) : a(x), b(y) {}
-// }l[100001];
 };
 
 int xyCmp(const double p, const double mini, const double maxi)
@@ -90,6 +89,8 @@ int segCross(const line &l, const line &m)
 
 int main(int argc, char const *argv[])
 {
-	// segCross(l1,l2);
+	line l1(point(0,0), point(2,2));
+	line l2(point(0,1), point(0.9,1.1));
+	printf("%d\n", segCross(l1,l2));
 	return 0;
 }

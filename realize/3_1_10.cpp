@@ -25,7 +25,7 @@ inline double dot(Point a, Point b)
 {
 	return (conj(a)*b).real();
 }
-inline double satisfy(Point a, Halfplane p)
+inline bool satisfy(Point a, Halfplane p)
 {
 	return sgn(cross(a - p.first, p.second - p.first)) <= 0;
 }
@@ -88,12 +88,14 @@ int main(int argc, char const *argv[])
 	Halfplane L3(Point(0,2), Point(-1,1));
 	Halfplane L4(Point(-1,1), Point(-1,0));
 	Halfplane L5(Point(0.5,0), Point(0.5,1));
+	Halfplane L6(Point(0,0), Point(1,0));
 	vector<Halfplane> v;
 	v.push_back(L1);
 	v.push_back(L2);
 	v.push_back(L3);
 	v.push_back(L4);
 	v.push_back(L5);
+	v.push_back(L6);
 	vector<Point> ret = halfplaneIntersection(v);
 	for (int i = 0; i < ret.size(); ++i)
 	{

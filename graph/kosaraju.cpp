@@ -1,3 +1,4 @@
+// 强连通 kosaraju 算法
 #include <cstdio>
 #include <cstring>
 

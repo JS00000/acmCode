@@ -8,12 +8,6 @@ using namespace std;
 
 const double eps = 1e-8;
 const double PI = acos(-1.0);
-const int maxn = 100;
-
-int gcd(int a, int b)
-{
-	return b==0?a:gcd(b, a%b);
-}
 
 int cmp(double x)
 {
@@ -229,7 +223,7 @@ struct half_plane
 		a = aa;
 		b = bb;
 		c = cc;
-	}	
+	}
 };
 
 
@@ -239,6 +233,7 @@ double calc(const half_plane &L, const point &a)
 	return a.x*L.a+a.y*L.b+L.c;
 }
 
+// 求过两点的直线与L边界的交点
 point intersect(const point &a, const point &b, const half_plane &L)
 {
 	point res;

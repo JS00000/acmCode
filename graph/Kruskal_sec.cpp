@@ -1,3 +1,4 @@
+// kruskal_sec
 #include <iostream>
 #include <cstdio>
 #include <cstring>

@@ -1,5 +1,6 @@
 // 计算几何点类
 #include <iostream>
+#include <cstdio>
 #include <cmath>
 using namespace std;
 
@@ -72,7 +73,10 @@ point rotate_point(const point &p, double A)
 int main(int argc, char const *argv[])
 {
 	point p(1,0);
-	point t = rotate_point(p,PI);
+	point t = rotate_point(p,PI/2);
 	cout << t.x << " " << t.y << endl;
+	point a(2,9);
+	cout << (a+p).x << " " << (a+p).y << endl;
+	printf("%f\n", atan2(0,-1));
 	return 0;
 }
