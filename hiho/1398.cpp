@@ -24,28 +24,35 @@ void add_edge(int u, int v, int c)
 	head[u] = edge_idx++;
 }
 
-void build_graph()
+int build_graph()
 {
 	memset(head, -1, sizeof(head));
 	scanf("%d%d", &n, &m);
 	edge_idx = 0;
-	for (int i = 1; i <= n; ++i)
-	{
-		add_edge(1, 2+i, 1);
-		add_edge(2+i, 1 ,0);
-		add_edge(2+n+i, 2, 1);
-		add_edge(2, 2+n+i, 0);
-	}
-	int u, v;
+	int temp, k, sum = 0;
 	for (int i = 1; i <= m; ++i)
 	{
-		scanf("%d%d", &u, &v);
-		add_edge(2+u, 2+n+v, 1);
-		add_edge(2+n+v, 2+u, 0);
+		scanf("%d", &temp);
+		add_edge(2+n+i, 2 ,temp);
+		add_edge(2, 2+n+i, 0);
 	}
+	for (int i = 1; i <= n; ++i)
+	{
+		scanf("%d%d", &temp, &k);
+		add_edge(1, 2+i, temp);
+		add_edge(2+i, 1, 0);
+		sum += temp;
+		for (int j = 1; j <= k; j++)
+		{
+			scanf("%d", &temp);
+			add_edge(2+i, 2+n+temp, ~0u>>1);
+			add_edge(2+n+temp, 2+i, 0);
+		}
+	}
+	return sum;
 }
 
-void sap_max_flow(int start, int end, int N)
+int sap_max_flow(int start, int end, int N)
 {
 	int numh[maxn], h[maxn], curedge[maxn], pre[maxn];
 	// numh:用于GAP优化的统计高度数量数组; h:距离标号数组; curedge:当前弧数组; pre:前驱数组
@@ -98,20 +105,12 @@ void sap_max_flow(int start, int end, int N)
 			if (u != start) u = pre[u];
 		}
 	}
-}
-
-void check()
-{
-	int sum = 0;
-	for (int k = head[2]; k != -1; k = edges[k].next)
-		if (edges[k].c == 0) sum++;
-	printf("%d\n", sum);
+	return flow_ans;
 }
 
 int main()
 {
-	// build_graph();
-	// sap_max_flow(1, 2, n*2+2);
-	// check();
+	int ans = build_graph();
+	printf("%d\n", ans - sap_max_flow(1, 2, n+m+2));
 	return 0;
 }
