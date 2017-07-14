@@ -151,27 +151,15 @@ int containOlogn(const polygon_convex &a, const point &b)
 	{
 		int mid=(l+r)/2;
 		if (cmp(det(a.P[l]-g, a.P[mid]-g))>0 )
-		{
 			if (cmp(det(a.P[l]-g, b-g))>=0 && cmp(det(a.P[mid]-g, b-g))<0)
-			{
 				r=mid;
-			}
 			else
-			{
 				l=mid;
-			}
-		}
 		else
-		{
 			if (cmp(det(a.P[l]-g, b-g))<0 && cmp(det(a.P[mid]-g, b-g))>=0)
-			{
 				l=mid;
-			}
 			else
-			{
 				r=mid;
-			}
-		}
 	}
 	r%=n;
 	int z=cmp(det(a.P[r]-b, a.P[l]-b))-1;

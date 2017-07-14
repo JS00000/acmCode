@@ -57,13 +57,9 @@ int xyCmp(const double p, const double mini, const double maxi)
 int betweenCmp(const point &a, const point &b, const point &c)
 {
 	if (fabs(b.x-c.x)>fabs(b.y-c.y))
-	{
 		return xyCmp(a.x, min(b.x,c.x), max(b.x,c.x));
-	}
 	else
-	{
 		return xyCmp(a.y, min(b.y,c.y), max(b.y,c.y));
-	}
 }
 
 int segCross(const line &l, const line &m)
@@ -75,9 +71,7 @@ int segCross(const line &l, const line &m)
 	d3 = cmp(s3=cross(m.a,m.b,l.a));
 	d4 = cmp(s4=cross(m.a,m.b,l.b));
 	if ((d1^d2)==-2 && ((d3^d4)==-2))
-	{
 		return 1;
-	}
 	if ((d1==0 && betweenCmp(m.a, l.a, l.b)<=0)||
 		(d2==0 && betweenCmp(m.b, l.a, l.b)<=0)||
 		(d3==0 && betweenCmp(l.a, m.a, m.b)<=0)||
@@ -90,7 +84,7 @@ int segCross(const line &l, const line &m)
 int main(int argc, char const *argv[])
 {
 	line l1(point(0,0), point(2,2));
-	line l2(point(0,1), point(0.9,1.1));
+	line l2(point(0,1), point(1,1));
 	printf("%d\n", segCross(l1,l2));
 	return 0;
 }

@@ -46,7 +46,6 @@ inline int solve(double a[][MAXN], bool l[], double ans[], const int& n)
 	return res;
 }
 
-
 int main(int argc, char const *argv[])
 {
 	double a[3][MAXN];

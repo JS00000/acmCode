@@ -22,7 +22,6 @@ int pow(int a, int b)
 	return ret;
 }
 
-
 int main(int argc, char const *argv[])
 {
 	// freopen("in.in", "r", stdin);

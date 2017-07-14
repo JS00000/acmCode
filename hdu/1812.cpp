@@ -1,3 +1,4 @@
+// Polya定理 大数类
 #include <cmath>
 #include <cstdio>
 #include <cstring>
@@ -34,7 +35,7 @@ struct BigInteger{
         }
         printf("\n");
     }
-}p[35][35];
+};
 
 inline bool operator < (const BigInteger& a, const BigInteger& b)
 {
@@ -111,6 +112,7 @@ BigInteger pow(const BigInteger& a, int b)
     return res;
 }
 
+BigInteger p[35][35];
 int vis[35][35];
 
 void solve(int n,int c)

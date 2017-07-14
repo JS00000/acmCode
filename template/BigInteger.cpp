@@ -1,17 +1,16 @@
 // 大数类
-#include <cstdio>
-#include <cstring>
-#include <cmath>
-#include <algorithm>
-#include <cassert>
 #include <ctime>
+#include <cmath>
+#include <cstdio>
+#include <cassert>
+#include <cstring>
+#include <algorithm>
 using namespace std;
 typedef long long ll;
 
 const int BASE = 1000;
 const int SIZE = 510;
 
-int vis[35][35];
 
 struct BigInteger{
     int length, digit[SIZE];
@@ -38,7 +37,7 @@ struct BigInteger{
         }
         printf("\n");
     }
-}p[35][35];
+};
 
 inline bool operator < (const BigInteger& a, const BigInteger& b)
 {
@@ -115,6 +114,9 @@ inline BigInteger operator ^ (const BigInteger& a, int b)
     return res;
 }
 
+
+int vis[35][35];
+BigInteger p[35][35];
 inline void solve(int n, int m)
 {
     if(vis[n][m]) {

@@ -2,12 +2,13 @@
 #include <iostream>
 #include <cstdio>
 #include <cmath>
+#include <cstdlib>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
-const int maxn = 100007;
+const int maxn = 110007;
 const double eps = 1e-8;
 const double PI = acos(-1.0);
 
@@ -106,6 +107,15 @@ double Min_Dist(point a[], int s[], int n)
 
 int main(int argc, char const *argv[])
 {
-	
+	srand(unsigned(time(NULL)) + clock());
+	n = 100314;
+    for (int i=0; i<n; i++)
+    {
+        a[i].x = double(rand())/RAND_MAX*100;
+        a[i].y = double(rand())/RAND_MAX*100;
+    }
+    time_t start = clock();
+    printf("%f\n", Min_Dist(a, s, n));
+    printf("%lu\n", clock() - start);
 	return 0;
 }

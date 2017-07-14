@@ -1,3 +1,4 @@
+// 线段树
 #include <cstdio>
 #include <cstring>
 #include <algorithm>

@@ -79,16 +79,11 @@ int solve(int a[], int b[], int n, int t)
 }
 int main(int argc, char const *argv[])
 {
-	int a[2];
-	a[0] = 1;
-	a[1] = 1;
-	int b[2];
-	b[0] = 1;
-	b[1] = 1;
+	// 系数
+	int a[2] = {1,1};
+	// 初值
+	int b[2] = {0,1};
 	for (int i = 0; i < 20; ++i)
-	{
 		cout << solve(a, b, 2, i) << " ";
-	}
 	return 0;
 }
-
