@@ -86,21 +86,14 @@ void bfs(int x)
 	}
 }
 
-
 int main(int argc, char const *argv[])
 {
 	ios::sync_with_stdio(false);
-
 	graphCreat();
-
 	graphTraverse();
-
 	memset(s, 0, (n+1)*sizeof(bool));
 	dfs(1);printf("\n");
-
 	memset(s, 0, (n+1)*sizeof(bool));
 	bfs(1);printf("\n");
-
-
 	return 0;
 }

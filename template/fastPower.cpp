@@ -11,38 +11,38 @@ typedef long long LL;
 
 LL mul_mod(LL a, LL b)
 {
-	LL res = 0;
-	int flag;
-	if ( b < 0 ) 
-	{
-		flag = 1;
-		b = -b;
-	}
-	else flag = 0;
-	while(b)
-	{
-		if (b & 1)
-			res = (res + a) % MOD;
-		b >>= 1;
-		a = (a << 1) % MOD;
-	}
-	res %= MOD;
-	return (flag ? (~res + 1) : res);
+    LL res = 0;
+    int flag;
+    if ( b < 0 ) 
+    {
+        flag = 1;
+        b = -b;
+    }
+    else flag = 0;
+    while(b)
+    {
+        if (b & 1)
+            res = (res + a) % MOD;
+        b >>= 1;
+        a = (a << 1) % MOD;
+    }
+    res %= MOD;
+    return (flag ? (~res + 1) : res);
 }
 
 
 long pow(long a, long b, long n)
 {
-	long base = a;
-	long r = 1;
-	while(b!=0)
-	{
-		printf("%ld 	%ld	 %ld 		%ld\n", a, b, base, r);
-		if (b&1) r=r*base%n;
-		base=base*base%n;
-		b>>=1;
-	}
-	return r;
+    long base = a;
+    long r = 1;
+    while(b!=0)
+    {
+        printf("%ld     %ld  %ld        %ld\n", a, b, base, r);
+        if (b&1) r=r*base%n;
+        base=base*base%n;
+        b>>=1;
+    }
+    return r;
 }
 
 LL exgcd(LL a,LL b,LL &x,LL &y)  //返回最大公约数，x，y存的是一组解
@@ -68,14 +68,14 @@ LL inv(LL a,LL m)
 
 int main(int argc, char const *argv[])
 {
-	/* code */
-	clock_t start, finish;
-	start = clock();
-	
-	cout << pow(3, 27, 1000000007);
+    /* code */
+    clock_t start, finish;
+    start = clock();
+    
+    cout << pow(3, 27, 1000000007);
 
 
-	finish = clock();
-	cout << "\nTime:" << double(finish - start) << endl;
-	return 0;
+    finish = clock();
+    cout << "\nTime:" << double(finish - start) << endl;
+    return 0;
 }

@@ -1,4 +1,4 @@
-// Fenwick_tree
+// 树状数组 Fenwick_tree
 #include <cstdio>
 
 #define maxn 1007
@@ -15,7 +15,7 @@ int A[maxn];
 int BIT[maxn];
 
 void build()
-{ 
+{
     for (int i=1;i<=n;i++)
     {
         BIT[i]=A[i];
@@ -41,6 +41,6 @@ int sum (int k)
 
 int main(int argc, char const *argv[])
 {
-	
+    
 	return 0;
 }
