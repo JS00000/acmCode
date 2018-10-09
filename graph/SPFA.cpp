@@ -19,7 +19,7 @@ struct node
 void creatGraph()
 {
 	cin >> n >> m;
-	memset(head, 0, sizeof(head));
+	memset(head, -1, sizeof(head));
 	int a, b, w;
 	for (int i = 1; i <= m; ++i)
 	{
@@ -31,7 +31,7 @@ void creatGraph()
 	}
 }
 
-
+int inf = 0x7fffffff;
 int dist[maxn];
 bool SPFA(int s)
 {
@@ -39,9 +39,9 @@ bool SPFA(int s)
 	int queue[maxn];
 	int outque[maxn];
 	int iq = 0;
-	for (int i = 1; i <= n; ++i)
+	for (int i = 0; i <= n; ++i)
 	{
-		dist[i] = 1000000000;
+		dist[i] = inf;
 	}
 	memset(visit, 0, sizeof(visit));
 	memset(outque, 0, sizeof(outque));
@@ -55,7 +55,7 @@ bool SPFA(int s)
 		visit[top] = 0;
 		outque[top]++;
 		if (outque[top] > n) return false;
-		for (int k = head[top]; k != 0; k = edge[k].next)
+		for (int k = head[top]; k != -1; k = edge[k].next)
 		{
 			if (dist[edge[k].to] - edge[k].w > dist[top])
 			{
@@ -79,7 +79,7 @@ int main(int argc, char const *argv[])
 {
 	freopen("SPFA.in", "r", stdin);
 	creatGraph();
-	if (SPFA(1)) printf("OK\n");
+	if (!SPFA(0)) printf("false\n");
 	for (int i = 1; i <= n; ++i)
 		printf("%d ", dist[i]);
 	printf("\n");

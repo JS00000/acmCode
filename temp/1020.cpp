@@ -1,21 +1,17 @@
-#include "iostream"
-
+#include <cmath>
+#include <cstdio>
+#include <cstring>
+#include <algorithm>
+#define maxn 1007
 using namespace std;
-int main(int argc, char const *argv[])
+
+
+
+int main()
 {
-	/* code */
-	string str;
-	int num[3];
-	cin >> str;
-	num[0] = (str[0]-'0');
-	num[1] = (str[1]-'0');
-	num[2] = (str[2]-'0');
-	if (num[0]*100+num[1]*10+num[2] == num[0]*num[0]*num[0]+num[1]*num[1]*num[1]+num[2]*num[2]*num[2])
+	for (std::vector<int>::iterator i = it.begin(); i != it.end(); ++i)
 	{
-		cout << '1' << endl;
-	}
-	else {
-		cout << '0' << endl;
+
 	}
 	return 0;
 }

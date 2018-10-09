@@ -5,6 +5,7 @@
 #include <iostream>
 #include <algorithm>
 #define maxn 100007
+using namespace std;
 typedef std::complex<double> complex_t;
 int n, bit_length;
 complex_t epsilon[maxn];
@@ -63,7 +64,7 @@ void transform(int n, complex_t *x, complex_t *w)
 
 int main(int argc, char const *argv[])
 {
-    n = 4096;
+    n = 32;
     init_epsilon(n);
     for (int i = 0; i < n; ++i)
         A[i] = complex_t(i, 0);
@@ -72,9 +73,9 @@ int main(int argc, char const *argv[])
     fft(n, A, 0, 1, epsilon);
     end = clock();
 
-    // for (int i = 0; i < n; ++i)
-    //     cout << A[i] << endl;
-    // cout << endl;
+    for (int i = 0; i < n; ++i)
+        cout << A[i] << endl;
+    cout << endl;
 
     std::cout << "Time: " << end-beg << std::endl;
 
@@ -83,8 +84,8 @@ int main(int argc, char const *argv[])
     beg = clock();
     transform(n, A, epsilon);
     end = clock();
-    // for (int i = 0; i < n; ++i)
-    //     cout << A[i] << endl;
+    for (int i = 0; i < n; ++i)
+        cout << A[i] << endl;
     std::cout << "Time: " << end-beg << std::endl;
     return 0;
 }
