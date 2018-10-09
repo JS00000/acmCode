@@ -1,9 +1,0 @@
-8
-i helloworld
-i hellokitty
-i hellokitooo
-d hellokit
-s helloki
-s hellokit
-s hello
-s helloworld
