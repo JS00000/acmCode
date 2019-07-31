@@ -5,15 +5,14 @@
 #define maxn 1007
 using namespace std;
 
-typedef union {
-  unsigned long long i;
-  double f;
-}u;
+int n, k;
+int a[maxn];
 
 int main()
 {
-    u u1;
-    u1.f = 0.25;
-    printf("%llx\n", u1.i);
+    scanf("%d%d", &n, &k);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", a + i);
+    }
     return 0;
 }

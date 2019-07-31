@@ -1,9 +1,6 @@
 // 最近点对
-#include <iostream>
-#include <cstdio>
 #include <cmath>
-#include <cstdlib>
-#include <vector>
+#include <cstdio>
 #include <algorithm>
 
 using namespace std;
@@ -107,15 +104,10 @@ double Min_Dist(point a[], int s[], int n)
 
 int main(int argc, char const *argv[])
 {
-    srand(unsigned(time(NULL)) + clock());
-    n = 100314;
-    for (int i=0; i<n; i++)
-    {
-        a[i].x = double(rand())/RAND_MAX*100;
-        a[i].y = double(rand())/RAND_MAX*100;
+    while (~scanf("%d", &n) && n != 0) {
+        for (int i=0; i<n; i++) 
+            scanf("%lf%lf", &a[i].x, &a[i].y);
+        printf("%.2f\n", Min_Dist(a, s, n)/2);
     }
-    time_t start = clock();
-    printf("%f\n", Min_Dist(a, s, n));
-    printf("%lu\n", clock() - start);
     return 0;
 }
