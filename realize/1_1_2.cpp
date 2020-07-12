@@ -1,6 +1,7 @@
 // Gauss消元
 
 #include <iostream>
+#include <cstdio>
 #include <cmath>
 
 #define EPS 0.0001
@@ -53,11 +54,13 @@ int main(int argc, char const *argv[])
 	double ans[3];
 	int n = 2;
 	a[0][0] = 1; a[0][1] = 1; a[0][2] = 5;
-	a[1][0] = 1; a[1][1] = -1;a[1][2] = 1;
+	a[1][0] = 1; a[1][1] = 1; a[1][2] = 1;
 	cout << solve(a, l, ans, n) << endl;
 	for (int i = 0; i < 2; ++i)
 	{
-		cout << ans[i] << " ";
+		if (l[i]) cout << ans[i] << " ";
+		else cout << "x";
 	}
+	cout << endl;
 	return 0;
 }
